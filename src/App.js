@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import './styles/advice.css';
-import Capture from './Capture.PNG';
-import '..//node_modules/bootstrap/dist/css/bootstrap.css';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 class App extends React.Component {
     constructor() {
         super();
@@ -17,7 +17,9 @@ class App extends React.Component {
             const { slip } = data;
             const { advice } = slip;
             this.setState({ advice });
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     adviceGenerator = async () => {
@@ -26,7 +28,9 @@ class App extends React.Component {
             const { slip } = data;
             const { advice } = slip;
             this.setState({ advice });
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     render() {
@@ -42,7 +46,7 @@ class App extends React.Component {
 
                 <div className='img-align'>
                     <div className='align'>
-                        <img src={Capture} alt='baba g' className='pic' />
+                        <img src={window.location.origin + '/img/Capture.png'} alt='baba g' className='pic' />
                     </div>
                     <div className='move'>
                         <button className='btn btn-danger ' onClick={this.adviceGenerator}>
